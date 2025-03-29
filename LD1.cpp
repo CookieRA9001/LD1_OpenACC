@@ -19,8 +19,8 @@ float montecarlo(
 ) {
     signed long long int count = 0;
     float y, f;
-    //#pragma acc data copy(count)
-    //#pragma acc parallel loop private(y, f) independent 
+    #pragma acc data copy(count)
+    #pragma acc parallel loop private(y, f) independent 
     for (int i = 0; i < points; i++) {
         y = random(ymin, ymax);
         f = integrand(random(xmin, xmax),a,b,c);
